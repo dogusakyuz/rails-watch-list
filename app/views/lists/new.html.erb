@@ -1,14 +1,12 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Create a new list</h3>
-        <%= simple_form_for @list do |f| %>
-          <%= f.input :name, placeholder: 'Drama' %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<!-- app/views/lists/new.html.erb -->
+<div class="new-list-form">
+  <h1 class="form-title">New List</h1>
+
+  <%= simple_form_for @list, html: { class: 'list-form' } do |f| %>
+    <%= f.input :name, label: "List Name" %>
+    <%= f.input :image_url, label: "Image URL (optional)" %>
+    <%= f.button :submit, class: "submit-button" %>
+  <% end %>
+
+  <%= link_to "Back to Lists", lists_path, class: "back-to-lists-button" %>
 </div>
