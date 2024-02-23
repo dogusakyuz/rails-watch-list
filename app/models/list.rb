@@ -4,17 +4,17 @@ class List < ApplicationRecord
   # has_many :reviews, dependent: :destroy
   # has_one_attached :photo
   # validates :name, uniqueness: true, presence: true
-
+  attr_accessor :image_url
   validates :name, presence: true, uniqueness: true
 
   has_many :bookmarks, dependent: :destroy
   has_many :movies, through: :bookmarks
 
-  before_destroy :destroy_associated_bookmarks
+  # before_destroy :destroy_associated_bookmarks
 
-  private
+  # private
 
-  def destroy_associated_bookmarks
-    bookmarks.destroy_all
-  end
+  # def destroy_associated_bookmarks
+  #   bookmarks.destroy_all
+  # end
 end
